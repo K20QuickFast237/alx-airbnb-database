@@ -9,7 +9,8 @@ ON user.user_id = booking.user_id;
 SELECT property.property_id, review_id, name, description, price_per_night, rating, comment, is_approved, state_province, country
 FROM property
 LEFT JOIN review 
-ON property.property_id = review.property_id;
+ON property.property_id = review.property_id
+ORDER BY property_id;
 
 
 -- Write a query using a FULL OUTER JOIN to retrieve all users and all bookings, even if the user has no booking or a booking is not linked to a user.
@@ -21,4 +22,5 @@ UNION
 SELECT user.user_id, role, booking_id, property_id, phone_number, start_date, end_date, total_price, number_of_guests, first_name, last_name, email
 FROM user
 RIGHT JOIN booking 
-ON user.user_id = booking.user_id;
+ON user.user_id = booking.user_id
+ORDER BY user.user_id;
