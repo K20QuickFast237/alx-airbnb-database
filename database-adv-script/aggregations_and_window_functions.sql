@@ -14,6 +14,7 @@ ON user.user_id = booking_count.user_id;
 SELECT 
 	user.user_id, 
     ROW_NUMBER() OVER(PARTITION BY user_id) as position,
+    RANK() OVER(PARTITION BY user_id) as ranking,
     user.first_name, 
     user.email, 
     booking.booking_id,
